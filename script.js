@@ -22,7 +22,7 @@ $(document).ready(function () {
               })
             }
             else {
-              ghostie.on('touchend', function () {
+              ghostie.on('touched', function () {
                 navigator.vibrate(1000);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
                 $(this).slideUp(200);
