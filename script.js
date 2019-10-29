@@ -13,10 +13,10 @@ $(document).ready(function () {
          
  
               ghostie.click(function () {
-                navigator.vibrate(200);
+                navigator.vibrate(1);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100);
                 ghostie.removeClass('active').addClass('off');
-                $(this).slideUp(10);
+                $(this).slideUp(200);
                 setTimeout(() => {
                   $(this).remove();
                 }, 200);
