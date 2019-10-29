@@ -17,7 +17,7 @@ $(document).ready(function () {
          
             if (winWid >= 500) {
               ghostie.click(function () {
-                navigator.vibrate(1000);
+                navigator.vibrate(100);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
                 $(this).slideUp(200);
                 setTimeout(() => {
