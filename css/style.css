@@ -17,6 +17,7 @@ html {
     text-align: center;
     background: url(../img/bg.jpg) center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .point {

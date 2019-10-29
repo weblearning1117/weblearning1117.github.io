@@ -3,10 +3,6 @@ $(document).ready(function () {
     var ghost  = $('.ghost');
     var count  = $('.point');
     var x, y, i, ghostie;
-    
-    $('html').dblclick(function (e) {
-      e.PreventDefault();
-    })
 
 
     setInterval(() => {
@@ -26,7 +22,7 @@ $(document).ready(function () {
               })
             }
             else {
-              ghostie.on('touchstart', function () {
+              ghostie.on('touchend', function () {
                 navigator.vibrate(1000);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
                 $(this).slideUp(200);
