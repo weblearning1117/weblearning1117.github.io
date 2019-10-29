@@ -2,7 +2,7 @@ $(document).ready(function () {
     var winWid = window.innerWidth;
     var ghost  = $('.ghost');
     var count  = $('.point');
-    var x, y, i, ghostie;
+    var x, y, ghostie;
 
 
     setInterval(() => {
@@ -13,7 +13,7 @@ $(document).ready(function () {
          
  
               ghostie.click(function () {
-                navigator.vibrate(1000);
+                navigator.vibrate(200);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
                 $(this).slideUp(200);
                 setTimeout(() => {
@@ -23,14 +23,6 @@ $(document).ready(function () {
             
            
     }, 432);
-    
-    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    if(!isChrome){
-      $('#iframeAudio').remove()
-    }
-  else{
-     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
-  }
    
 
     
