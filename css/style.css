@@ -1,18 +1,29 @@
 @font-face {
-    font-family: Boo; /* Гарнитура шрифта */
-    src: url(../fonts/Zombified.ttf); /* Путь к файлу со шрифтом */
-   }
+    font-family: Boo;
+    /* Гарнитура шрифта */
+    src: url(../fonts/Zombified.ttf);
+    /* Путь к файлу со шрифтом */
+}
+
 html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     height: 100vh;
     font-family: Boo;
     text-align: center;
     background: url(../img/bg.jpg) center;
     background-size: cover;
 }
+
 .point {
     font-size: 80px;
     margin: 0;
 }
+
 .game {
     height: 80vh;
     width: 80vw;
@@ -22,6 +33,7 @@ html {
     left: 10vw;
     border-radius: 20px;
 }
+
 .ghost {
     width: 50px;
     height: 50px;
@@ -31,11 +43,13 @@ html {
     animation: rotate .5s alternate infinite linear;
     cursor: pointer;
 }
-@keyframes rotate{
+
+@keyframes rotate {
     from {
         transform: rotate(-10deg);
     }
+
     to {
-        transform: rotate(10deg);  
+        transform: rotate(10deg);
     }
 }
