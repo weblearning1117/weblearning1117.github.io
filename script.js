@@ -4,6 +4,9 @@ $(document).ready(function () {
     var count  = $('.point');
     var x, y, i, ghostie;
     
+    $('html').dblclick(function (e) {
+      e.preventDefault();
+    })
 
 
     setInterval(() => {
