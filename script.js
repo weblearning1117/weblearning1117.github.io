@@ -11,7 +11,7 @@ $(document).ready(function () {
       ghost.clone().appendTo('.game').css('left', x + '%').css('top', y + '%').addClass('ghostie');
             ghostie = $('.ghostie');
          
-            if (winWid >= 500) {
+ 
               ghostie.click(function () {
                 navigator.vibrate(1000);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
@@ -20,17 +20,8 @@ $(document).ready(function () {
                   $(this).remove();
                 }, 200);
               })
-            }
-            else {
-              ghostie.on('touched', function () {
-                navigator.vibrate(1000);
-                number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
-                $(this).slideUp(200);
-                setTimeout(() => {
-                  $(this).remove();
-                }, 200);
-              })
-            }
+            
+           
     }, 432);
     
     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
