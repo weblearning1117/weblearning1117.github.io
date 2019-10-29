@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var winWid = window.innerWidth;
-    var ghost  = $('.ghost');
+    var ghost  = $('.ghost.active');
     var count  = $('.point');
     var x, y, ghostie;
 
@@ -14,15 +14,22 @@ $(document).ready(function () {
  
               ghostie.click(function () {
                 navigator.vibrate(200);
-                number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
-                $(this).slideUp(200);
+                number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100);
+                ghostie.removeClass('active').addClass('off');
+                $(this).slideUp(10);
                 setTimeout(() => {
                   $(this).remove();
                 }, 200);
               })
+              $('.off').click(function () {
+                console.log(1);
+              })
+              $('.off').hover(function () {
+                return false;
+              })
             
            
-    }, 432);
+    }, 750);
    
 
     
