@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var winWid = window.innerWidth;
     var ghost  = $('.ghost');
     var count  = $('.point');
     var x, y, i, ghostie;
@@ -10,14 +11,27 @@ $(document).ready(function () {
       y = Math.round(5 - 0.5 + Math.random() * (95 - 5 + 1));
       ghost.clone().appendTo('.game').css('left', x + '%').css('top', y + '%').addClass('ghostie');
             ghostie = $('.ghostie');
-            ghostie.click(function () {
-              navigator.vibrate(1000);
-              number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
-              $(this).slideUp(200);
-              setTimeout(() => {
-                $(this).remove();
-              }, 200);
-            })
+         
+            if (winWid >= 500) {
+              ghostie.click(function () {
+                navigator.vibrate(1000);
+                number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
+                $(this).slideUp(200);
+                setTimeout(() => {
+                  $(this).remove();
+                }, 200);
+              })
+            }
+            else {
+              ghostie.hover(function () {
+                navigator.vibrate(1000);
+                number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100)
+                $(this).slideUp(200);
+                setTimeout(() => {
+                  $(this).remove();
+                }, 200);
+              })
+            }
     }, 432);
     
     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
