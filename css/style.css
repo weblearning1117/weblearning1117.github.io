@@ -40,6 +40,8 @@ html {
     left: 0;
     animation: rotate .5s alternate infinite linear;
     cursor: pointer;
+    background: url(../img/ghost2.png) center;
+    background-size: cover;
 }
 
 @keyframes rotate {

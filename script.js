@@ -15,10 +15,13 @@ $(document).ready(function () {
       y = Math.round(5 - 0.5 + Math.random() * (95 - 5 + 1));
       ghost.clone().appendTo('.game').css('left', x + '%').css('top', y + '%').addClass('ghostie');
             ghostie = $('.ghostie');
-         
- 
+
               ghostie.on('click', function () {
-                navigator.vibrate(1);
+                if ($(this).hasClass('off')) {
+                  return false;
+                }
+                else {
+                      navigator.vibrate(1);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100);
                 $(this).removeClass('active').addClass('off');
                 if (x <= 50) {
@@ -32,14 +35,11 @@ $(document).ready(function () {
                 setTimeout(() => {
                   $(this).remove();
                 }, 200);
+                }
+            
               })
               
-              $('.off').click(function () {
-                return false;
-              })
-              $('.off').hover(function () {
-                return false;
-              })
+             
            
     }, 850);
    
