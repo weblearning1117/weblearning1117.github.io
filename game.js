@@ -25,7 +25,7 @@ $(document).ready(function () {
             location.reload();
          })
       setInterval(() => {
-          if ($('.ghost.ghostie').length > 10) {
+          if ($('.ghost.ghostie').length > 4) {
               $('.ghost-kill').html(ghostKill + ' 👻 killed');
               $('.pumpkin-kill').html(pumpkinKill + ' 🎃 killed');
               $('.man-kill').html(manKill + ' 🙋🏻‍♂️ killed');

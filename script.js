@@ -3,7 +3,7 @@ $(document).ready(function () {
   var winWid = $('html').outerWidth();
   
   over.css('left', ((winWid / 2) -  over.outerWidth() / 2) + 'px');
-  over.css('transform', 'translateY(-' + (over.outerHeight() + 10) + 'px)');
+  over.css('transform', 'translateY(-' + (over.outerHeight() * 2) + 'px)');
   
   document.onselectstart = function () {
     return false;
