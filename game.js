@@ -4,6 +4,7 @@ $(document).ready(function () {
     var pumpkin = $('.pumpkin.active');
     var man = $('.man.active');
     var count = $('.point');
+    var restart = $('.restart')
     var x, y, ghostie;
 
     spawn(ghost, 100, 850, false);
@@ -12,9 +13,18 @@ $(document).ready(function () {
   
   
     function spawn(element, point, time, fade) {
+        restart.on('click', function () { 
+           /*  $('.ghostie').fadeOut(200);
+            setTimeout(() => {
+                $('.ghostie').remove();
+                restart.css('display', 'none').css('opacity', '0');
+            }, 200); */
+            location.reload();
+         })
       setInterval(() => {
-          if ($('.ghost.ghostie').length > 14) {
-              return false;
+          if ($('.ghost.ghostie').length > 10) {
+            $('.ghostie').addClass('off')
+            restart.css('display', 'block').css('opacity', '1')
           } 
           else {
                      x = Math.round(10 - 0.5 + Math.random() * (90 - 10 + 1));
