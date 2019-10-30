@@ -4,7 +4,10 @@ $(document).ready(function () {
     var pumpkin = $('.pumpkin.active');
     var man = $('.man.active');
     var count = $('.point');
-    var restart = $('.restart')
+    var restart = $('.restart');
+    var ghostKill = 0;
+    var pumpkinKill = 0;
+    var manKill = 0;
     var x, y, ghostie;
 
     spawn(ghost, 100, 850, false);
@@ -23,8 +26,11 @@ $(document).ready(function () {
          })
       setInterval(() => {
           if ($('.ghost.ghostie').length > 10) {
+              $('.ghost-kill').html(ghostKill + ' 👻 killed');
+              $('.pumpkin-kill').html(pumpkinKill + ' 🎃 killed');
+              $('.man-kill').html(manKill + ' 🙋🏻‍♂️ killed');
             $('.ghostie').addClass('off')
-            restart.css('display', 'block').css('opacity', '1')
+           $('.gameover').css('transform', 'translateY(' + ((window.innerHeight / 2) - ($('.gameover').outerHeight() / 2)) + 'px)')
           } 
           else {
                      x = Math.round(10 - 0.5 + Math.random() * (90 - 10 + 1));
@@ -33,10 +39,21 @@ $(document).ready(function () {
         ghostie = $('.ghostie');
   
         ghostie.on('click', function () {
+            
           if ($(this).hasClass('off')) {
             return false;
-          } else {
-            navigator.vibrate(1);
+          } 
+          else {
+            if ($(this).hasClass('pumpkin')) {
+                pumpkinKill += 1;
+            }
+            else if ($(this).hasClass('ghost')) {
+                ghostKill += 1;
+            }
+            else {
+                manKill += 1;
+            }
+            navigator.vibrate(10);
             number_to('point', parseInt(count.html()), parseInt(count.html()) + point, 100);
             $(this).removeClass('active').addClass('off');
             $(this).slideUp(200);
@@ -69,11 +86,6 @@ $(document).ready(function () {
       }, time);
    
     }
-  
-  
-  
-  
-  
   
     function number_to(id, from, to, duration) {
       var element = document.getElementById(id);
