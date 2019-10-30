@@ -3,7 +3,12 @@ $(document).ready(function () {
     var ghost  = $('.ghost.active');
     var count  = $('.point');
     var x, y, ghostie;
-
+    document.onselectstart = function() {
+      return false;
+  };
+    document.oncontextmenu = function() {
+      return false;
+  };
 
     setInterval(() => {
       x = Math.round(5 - 0.5 + Math.random() * (95 - 5 + 1));
@@ -15,21 +20,28 @@ $(document).ready(function () {
               ghostie.click(function () {
                 navigator.vibrate(1);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100);
-                ghostie.removeClass('active').addClass('off');
-                $(this).slideUp(200);
+                $(this).removeClass('active').addClass('off');
+                if (x <= 50) {
+                  $(this).fadeOut(200);
+                }
+                else {
+                  $(this).slideUp(200);
+                }
+       
+               
                 setTimeout(() => {
                   $(this).remove();
                 }, 200);
               })
+              
               $('.off').click(function () {
-                console.log(1);
+                return false;
               })
               $('.off').hover(function () {
                 return false;
               })
-            
            
-    }, 750);
+    }, 850);
    
 
     
