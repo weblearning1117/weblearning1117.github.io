@@ -17,7 +17,7 @@ $(document).ready(function () {
             ghostie = $('.ghostie');
          
  
-              ghostie.click(function () {
+              ghostie.on('click', function () {
                 navigator.vibrate(1);
                 number_to('point', parseInt(count.html()), parseInt(count.html()) + 100, 100);
                 $(this).removeClass('active').addClass('off');
