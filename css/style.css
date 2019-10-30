@@ -20,6 +20,7 @@ html {
 .point {
     font-size: 80px;
     margin: 0;
+    transition: .6s;
 }
 
 .game {
@@ -31,19 +32,40 @@ html {
     left: 10vw;
     border-radius: 20px;
 }
-
-.ghost {
-    width: 50px;
+.element {
+     width: 50px;
     height: 50px;
     position: absolute;
     top: -9999px;
     left: 0;
     animation: rotate .5s alternate infinite linear;
     cursor: pointer;
-    background: url(../img/ghost2.png) center;
-    background-size: cover;
+    background-size: cover!important;
 }
-
+.ghost {
+    background: url(../img/ghost2.png) center;
+}
+.pumpkin {
+    background: url(../img/pumpkin.png) center;
+}
+.man {
+    background: url(../img/man.png) center;
+}
+.btn {
+    font-size: 50px;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 0px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.btn:hover {
+    background: rgba(210, 105, 30, 0.164);
+}
+.btn p {
+    margin: 0;
+    height: 60px;
+}
 @keyframes rotate {
     from {
         transform: rotate(-10deg);
