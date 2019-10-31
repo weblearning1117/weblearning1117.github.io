@@ -41,6 +41,7 @@ html {
     animation: rotate .5s alternate infinite linear;
     cursor: pointer;
     background-size: cover!important;
+    background-color: none!important;
 }
 .ghost {
     background: url(../img/ghost2.png) center;

@@ -16,7 +16,7 @@ $(document).ready(function () {
   
   
     function spawn(element, point, time, fade) {
-        restart.on('click', function () { 
+        restart.on('touchstart', function () { 
            /*  $('.ghostie').fadeOut(200);
             setTimeout(() => {
                 $('.ghostie').remove();
@@ -37,9 +37,9 @@ $(document).ready(function () {
         y = Math.round(10 - 0.5 + Math.random() * (90 - 10 + 1));
         element.clone().appendTo('.game').css('left', x + '%').css('top', y + '%').addClass('ghostie');
         ghostie = $('.ghostie');
-  
-        ghostie.on('click', function () {
-            
+   if (winWid > 600) {
+       ghostie.on('click', function () {
+            $('this').css('background-color', 'none');
           if ($(this).hasClass('off')) {
             return false;
           } 
@@ -64,6 +64,36 @@ $(document).ready(function () {
           }
   
         })
+   }
+   else {
+    ghostie.on('touchstart', function () {
+      $('this').css('background-color', 'none');
+    if ($(this).hasClass('off')) {
+      return false;
+    } 
+    else {
+      if ($(this).hasClass('pumpkin')) {
+          pumpkinKill += 1;
+      }
+      else if ($(this).hasClass('ghost')) {
+          ghostKill += 1;
+      }
+      else {
+          manKill += 1;
+      }
+      navigator.vibrate(10);
+      number_to('point', parseInt(count.html()), parseInt(count.html()) + point, 100);
+      $(this).removeClass('active').addClass('off');
+      $(this).slideUp(200);
+      setTimeout(() => {
+        $(this).remove();
+      }, 200);
+
+    }
+
+  })
+   }
+      
         if (fade == 'pump') {
           setTimeout(() => {
             $('.pumpkin.ghostie').slideUp(200);
