@@ -16,14 +16,27 @@ $(document).ready(function () {
   
   
     function spawn(element, point, time, fade) {
+      if (winWid > 600) {
+        restart.on('click', function () { 
+          /*  $('.ghostie').fadeOut(200);
+           setTimeout(() => {
+               $('.ghostie').remove();
+               restart.css('display', 'none').css('opacity', '0');
+           }, 200); */
+           location.reload();
+        })
+      }
+      else {
         restart.on('touchstart', function () { 
-           /*  $('.ghostie').fadeOut(200);
-            setTimeout(() => {
-                $('.ghostie').remove();
-                restart.css('display', 'none').css('opacity', '0');
-            }, 200); */
-            location.reload();
-         })
+          /*  $('.ghostie').fadeOut(200);
+           setTimeout(() => {
+               $('.ghostie').remove();
+               restart.css('display', 'none').css('opacity', '0');
+           }, 200); */
+           location.reload();
+        })
+      }
+       
       setInterval(() => {
           if ($('.ghost.ghostie').length > 4) {
               $('.ghost-kill').html(ghostKill + ' 👻 killed');
